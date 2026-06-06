@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block extra_title %} | Contact / Quote{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+  <div class="container">
+    <span class="eyebrow">Contact / Quote Request</span>
+    <h1>Solicite uma avaliacao para sua obra.</h1>
+    <p>Envie os dados principais do terreno e a equipe da Arsenal Terraplanagem Ltda. retornara com orientacao para o proximo passo.</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <div class="contact-panel">
+          <h2>Informacoes uteis</h2>
+          <p>Inclua local da obra, tamanho aproximado do terreno, tipo de servico e prazo desejado.</p>
+          <div class="contact-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Atendimento regional para obras de terraplanagem</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fa-solid fa-clock"></i>
+            <span>Retorno para orcamentos em horario comercial</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <span>Visita tecnica conforme necessidade da obra</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form class="quote-form" method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Nome</label>
+              <input id="name" name="name" class="form-control" type="text" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="phone">Telefone</label>
+              <input id="phone" name="phone" class="form-control" type="tel" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" class="form-control" type="email">
+          </div>
+          <div class="form-group">
+            <label for="service">Servico desejado</label>
+            <select id="service" name="service" class="form-control" required>
+              <option value="">Selecione</option>
+              <option>Terraplanagem</option>
+              <option>Escavacao e aterro</option>
+              <option>Drenagem e acesso</option>
+              <option>Limpeza de terreno</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Detalhes da obra</label>
+            <textarea id="message" name="message" class="form-control" rows="6" required></textarea>
+          </div>
+          <button class="btn btn-primary-solid" type="submit">Enviar solicitacao</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

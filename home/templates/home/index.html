@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="hero-media" role="img" aria-label="Maquinas trabalhando em terraplanagem"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-copy">
+      <span class="eyebrow">Terraplanagem | Escavacao | Drenagem</span>
+      <h1>Arsenal Terraplanagem Ltda.</h1>
+      <p>Preparacao de terrenos para obras com execucao objetiva, planejamento de solo e equipe pronta para atender projetos residenciais, comerciais e industriais.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary-solid" href="{% url 'contact' %}">Pedir orcamento</a>
+        <a class="btn btn-secondary-ghost" href="{% url 'services' %}">Ver servicos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-band stats-band">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 stat-item">
+        <strong>Solo preparado</strong>
+        <span>nivelamento, corte, aterro e compactacao</span>
+      </div>
+      <div class="col-md-4 stat-item">
+        <strong>Obra organizada</strong>
+        <span>visita tecnica, cronograma e comunicacao clara</span>
+      </div>
+      <div class="col-md-4 stat-item">
+        <strong>Entrega pratica</strong>
+        <span>terreno pronto para a proxima etapa da construcao</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Servicos principais</span>
+      <h2>Base bem executada para a obra avancar</h2>
+    </div>
+    <div class="row">
+      {% for service in services %}
+      <div class="col-md-4 mb-4">
+        <article class="service-card">
+          <i class="fa-solid {{ service.icon }}"></i>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="content-section muted-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Projetos</span>
+      <h2>Galeria de trabalhos e frentes de obra</h2>
+    </div>
+    <div class="project-grid">
+      {% for project in projects %}
+      <article class="project-card">
+        <img src="{{ project.image }}" alt="{{ project.title }}">
+        <div>
+          <span>{{ project.location }}</span>
+          <h3>{{ project.title }}</h3>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="content-section cta-section">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <span class="eyebrow">Orcamento</span>
+        <h2>Tem um terreno para preparar?</h2>
+        <p>Envie as informacoes da obra e retornaremos com os proximos passos para avaliacao.</p>
+      </div>
+      <a class="btn btn-primary-solid" href="{% url 'contact' %}">Falar com a equipe</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

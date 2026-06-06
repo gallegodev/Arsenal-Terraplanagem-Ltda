@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block extra_title %} | Services{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Services</span>
+    <h1>Terraplanagem, escavacao e preparacao de areas.</h1>
+    <p>Servicos essenciais para transformar um terreno bruto em uma base organizada para construcao.</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      {% for service in services %}
+      <div class="col-lg-6 mb-4">
+        <article class="service-card service-card-large">
+          <i class="fa-solid {{ service.icon }}"></i>
+          <h2>{{ service.title }}</h2>
+          <p>{{ service.description }}</p>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
