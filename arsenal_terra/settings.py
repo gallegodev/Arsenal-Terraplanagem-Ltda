@@ -24,7 +24,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'boutique_ado.urls'
+ROOT_URLCONF = 'arsenal_terra.urls'
 
 TEMPLATES = [
     {
@@ -46,7 +46,7 @@ TEMPLATES = [
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-WSGI_APPLICATION = 'boutique_ado.wsgi.application'
+WSGI_APPLICATION = 'arsenal_terra.wsgi.application'
 
 DATABASES = {
     'default': {
