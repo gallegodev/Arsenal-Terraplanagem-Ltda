@@ -34,12 +34,29 @@ SERVICES = [
         ),
         'icon': 'fa-truck-ramp-box',
     },
+    {
+        'title': 'Locacao de caminhoes',
+        'description': (
+            'Aluguel de caminhoes para transporte de terra, entulho, pedra, '
+            'areia e apoio logistico em obras e terraplanagem.'
+        ),
+        'icon': 'fa-truck',
+    },
+    {
+        'title': 'Locacao de maquinas pesadas',
+        'description': (
+            'Disponibilidade de equipamentos para obra, incluindo maquinas '
+            '180, 360 e outros equipamentos conforme a necessidade do terreno '
+            'e do servico.'
+        ),
+        'icon': 'fa-truck-monster',
+    },
 ]
 
 def index(request):
     """Return the home page."""
     return render(request, 'home/index.html', {
-        'services': SERVICES[:3],
+        'services': SERVICES,
     })
 
 
