@@ -46,6 +46,13 @@ TEMPLATES = [
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'website@arsenalterraplanagem.local'
+CONTACT_EMAIL_RECIPIENTS = [
+    'gallegojuan1991@gmail.com',
+    'arsenalterra@gmail.com',
+]
+
 WSGI_APPLICATION = 'arsenal_terra.wsgi.application'
 
 DATABASES = {
