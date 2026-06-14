@@ -63,10 +63,20 @@ a:hover {
     color: var(--ink) !important;
 }
 
-.brand-mark img {
+.header-wordmark {
     display: block;
-    width: clamp(210px, 22vw, 320px);
-    height: auto;
+    color: #050505;
+    font-size: clamp(1.45rem, 3.4vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: .03em;
+    line-height: .9;
+    text-transform: uppercase;
+}
+
+.header-wordmark span {
+    display: block;
+    font-size: .52em;
+    letter-spacing: .08em;
 }
 
 .nav-link {
@@ -500,8 +510,8 @@ h3 {
 }
 
 @media (max-width: 575px) {
-    .brand-mark img {
-        width: min(218px, 62vw);
+    .header-wordmark {
+        font-size: min(2rem, 9vw);
     }
 
     .hero-section,
