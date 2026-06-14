@@ -56,26 +56,6 @@
   </div>
 </section>
 
-<section class="content-section muted-section">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">Projetos</span>
-      <h2>Galeria de trabalhos e frentes de obra</h2>
-    </div>
-    <div class="project-grid">
-      {% for project in projects %}
-      <article class="project-card">
-        <img src="{{ project.image }}" alt="{{ project.title }}">
-        <div>
-          <span>{{ project.location }}</span>
-          <h3>{{ project.title }}</h3>
-        </div>
-      </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <section class="content-section cta-section">
   <div class="container">
     <div class="cta-panel">
