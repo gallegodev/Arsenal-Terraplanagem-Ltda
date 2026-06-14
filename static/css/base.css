@@ -385,9 +385,7 @@ h3 {
 }
 
 .compact-hero {
-    background:
-        linear-gradient(90deg, rgba(29, 35, 39, .92), rgba(29, 35, 39, .62)),
-        url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1800&q=82') center / cover;
+    background: var(--asphalt);
 }
 
 .page-hero h1 {
