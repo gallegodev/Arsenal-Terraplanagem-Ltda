@@ -45,9 +45,8 @@ SERVICES = [
     {
         'title': 'Locacao de maquinas pesadas',
         'description': (
-            'Disponibilidade de equipamentos para obra, incluindo maquinas '
-            '180, 360 e outros equipamentos conforme a necessidade do terreno '
-            'e do servico.'
+            'Disponibilidade de equipamentos para obra conforme a necessidade '
+            'do terreno e do servico.'
         ),
         'icon': 'fa-truck-monster',
     },
