@@ -59,32 +59,14 @@ a:hover {
 .brand-mark {
     display: inline-flex;
     align-items: center;
-    gap: .75rem;
-    min-width: 240px;
+    min-width: 250px;
     color: var(--ink) !important;
-    font-size: 1.1rem;
-    line-height: 1.1;
 }
 
-.brand-mark small {
+.brand-mark img {
     display: block;
-    color: var(--muted);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .08rem;
-    text-transform: uppercase;
-}
-
-.brand-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
-    color: var(--asphalt);
-    background: var(--safety);
-    border-radius: 6px;
+    width: clamp(210px, 22vw, 320px);
+    height: auto;
 }
 
 .nav-link {
@@ -468,6 +450,12 @@ h3 {
     font-size: 1.4rem;
 }
 
+.footer-logo {
+    width: min(320px, 100%);
+    height: auto;
+    margin-bottom: 1.25rem;
+}
+
 .site-footer h3 {
     margin-bottom: .8rem;
     font-size: .9rem;
@@ -512,18 +500,8 @@ h3 {
 }
 
 @media (max-width: 575px) {
-    .brand-icon {
-        width: 38px;
-        height: 38px;
-        flex-basis: 38px;
-    }
-
-    .brand-mark {
-        font-size: .95rem;
-    }
-
-    .brand-mark small {
-        font-size: .64rem;
+    .brand-mark img {
+        width: min(218px, 62vw);
     }
 
     .hero-section,

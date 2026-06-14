@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453 101" role="img" aria-labelledby="title desc">
+  <title id="title">Arsenal Terraplanagem Ltda.</title>
+  <desc id="desc">Arsenal Terraplanagem logo with AP monogram and cyan wordmark.</desc>
+  <rect width="453" height="101" fill="#ffffff"/>
+  <rect x="4" y="4" width="110" height="93" fill="#050505"/>
+  <path fill="#ffffff" d="M18 81h12l28-52h35v23H72v10h21v19h11V19H52L18 81Zm42-14h-9l10-19v19Z"/>
+  <rect x="122" y="4" width="331" height="93" fill="#19f4f4"/>
+  <g fill="#050505" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900">
+    <text x="134" y="56" font-size="58" letter-spacing="2">ARSENAL</text>
+    <text x="134" y="88" font-size="31" letter-spacing="1">TERRAPLENAGEM</text>
+  </g>
+</svg>
