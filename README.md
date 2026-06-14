@@ -7,7 +7,7 @@ Django website for Arsenal Terraplanagem Ltda., a construction and earthworks co
 - Home
 - Sobre
 - Servicos
-- Contact / quote request
+- Contato / solicitacao de orcamento
 
 ## Local Development
 
