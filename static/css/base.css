@@ -379,9 +379,7 @@ h3 {
 .page-hero {
     padding: 6.5rem 0 4rem;
     color: var(--white);
-    background:
-        linear-gradient(90deg, rgba(29, 35, 39, .9), rgba(29, 35, 39, .58)),
-        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=82') center / cover;
+    background: var(--asphalt);
 }
 
 .compact-hero {
