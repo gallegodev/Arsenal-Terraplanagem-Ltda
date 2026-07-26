@@ -21,8 +21,9 @@ SERVICES = [
     {
         'title': 'Terraplanagem',
         'description': (
-            'Preparação, nivelamento e conformação de terrenos para obras '
-            'residenciais, comerciais e industriais.'
+            'Preparação completa do terreno, incluindo nivelamento, corte, '
+            'aterro, compactação, drenagem, abertura de acessos, limpeza da '
+            'área e apoio com caminhões conforme a necessidade da obra.'
         ),
         'icon': 'fa-mountain-sun',
     },
@@ -33,22 +34,6 @@ SERVICES = [
             'base estável e execução segura.'
         ),
         'icon': 'fa-person-digging',
-    },
-    {
-        'title': 'Drenagem e acesso',
-        'description': (
-            'Abertura de acessos, preparação de vias internas e soluções de '
-            'escoamento para reduzir riscos no canteiro.'
-        ),
-        'icon': 'fa-road',
-    },
-    {
-        'title': 'Limpeza de terreno',
-        'description': (
-            'Remoção de vegetação, entulho e materiais soltos antes da fase '
-            'principal da obra.'
-        ),
-        'icon': 'fa-truck-ramp-box',
     },
     {
         'title': 'Locação de máquinas pesadas',
