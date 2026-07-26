@@ -21,23 +21,23 @@ SERVICES = [
     {
         'title': 'Terraplanagem',
         'description': (
-            'Preparacao, nivelamento e conformacao de terrenos para obras '
+            'Preparação, nivelamento e conformação de terrenos para obras '
             'residenciais, comerciais e industriais.'
         ),
         'icon': 'fa-mountain-sun',
     },
     {
-        'title': 'Escavacao e aterro',
+        'title': 'Escavação e aterro',
         'description': (
-            'Movimentacao de solo, cortes, aterros e compactacao com foco em '
-            'base estavel e execucao segura.'
+            'Movimentação de solo, cortes, aterros e compactação com foco em '
+            'base estável e execução segura.'
         ),
         'icon': 'fa-person-digging',
     },
     {
         'title': 'Drenagem e acesso',
         'description': (
-            'Abertura de acessos, preparacao de vias internas e solucoes de '
+            'Abertura de acessos, preparação de vias internas e soluções de '
             'escoamento para reduzir riscos no canteiro.'
         ),
         'icon': 'fa-road',
@@ -45,24 +45,24 @@ SERVICES = [
     {
         'title': 'Limpeza de terreno',
         'description': (
-            'Remocao de vegetacao, entulho e materiais soltos antes da fase '
+            'Remoção de vegetação, entulho e materiais soltos antes da fase '
             'principal da obra.'
         ),
         'icon': 'fa-truck-ramp-box',
     },
     {
-        'title': 'Locacao de caminhoes',
+        'title': 'Locação de caminhões',
         'description': (
-            'Aluguel de caminhoes para transporte de terra, entulho, pedra, '
-            'areia e apoio logistico em obras e terraplanagem.'
+            'Aluguel de caminhões para transporte de terra, entulho, pedra, '
+            'areia e apoio logístico em obras e terraplanagem.'
         ),
         'icon': 'fa-truck',
     },
     {
-        'title': 'Locacao de maquinas pesadas',
+        'title': 'Locação de máquinas pesadas',
         'description': (
             'Disponibilidade de equipamentos para obra conforme a necessidade '
-            'do terreno e do servico.'
+            'do terreno e do serviço.'
         ),
         'icon': 'fa-truck-monster',
     },
@@ -95,18 +95,18 @@ def contact(request):
         message = request.POST.get('message', '').strip()
 
         email_body = (
-            'Nova solicitacao de orcamento recebida pelo site.\n\n'
+            'Nova solicitação de orçamento recebida pelo site.\n\n'
             f'Nome: {name}\n'
             f'Telefone: {phone}\n'
-            f'Email: {email or "Nao informado"}\n'
-            f'Servico desejado: {service}\n\n'
+            f'E-mail: {email or "Não informado"}\n'
+            f'Serviço desejado: {service}\n\n'
             'Detalhes da obra:\n'
             f'{message}\n'
         )
 
         reply_to = [email] if email else None
         quote_email = EmailMessage(
-            subject='Nova solicitacao de orcamento - Arsenal Terraplanagem',
+            subject='Nova solicitação de orçamento - Arsenal Terraplanagem',
             body=email_body,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=settings.CONTACT_EMAIL_RECIPIENTS,
@@ -119,7 +119,7 @@ def contact(request):
             logger.exception('Failed to send contact form email.')
             messages.error(
                 request,
-                'Nao foi possivel enviar a solicitacao agora. Por favor, tente novamente em instantes.',
+                'Não foi possível enviar a solicitação agora. Por favor, tente novamente em instantes.',
             )
         else:
             if email:
@@ -137,7 +137,7 @@ def contact(request):
 
             messages.success(
                 request,
-                'Obrigado. Recebemos sua solicitacao de orcamento e entraremos em contato em breve.',
+                'Obrigado. Recebemos sua solicitação de orçamento e entraremos em contato em breve.',
             )
         return redirect('contact')
 

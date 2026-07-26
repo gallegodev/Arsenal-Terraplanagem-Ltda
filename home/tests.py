@@ -37,11 +37,11 @@ class ContactEmailTests(TestCase):
         self.assertEqual(message.reply_to, ['cliente@example.com'])
         self.assertEqual(
             message.subject,
-            'Nova solicitacao de orcamento - Arsenal Terraplanagem',
+            'Nova solicitação de orçamento - Arsenal Terraplanagem',
         )
         self.assertIn('Nome: Cliente Teste', message.body)
         self.assertIn('Telefone: 11999999999', message.body)
-        self.assertIn('Servico desejado: Terraplanagem', message.body)
+        self.assertIn('Serviço desejado: Terraplanagem', message.body)
 
         auto_reply = mail.outbox[1]
         self.assertEqual(auto_reply.to, ['cliente@example.com'])
@@ -63,7 +63,7 @@ class ContactEmailTests(TestCase):
 
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].reply_to, [])
-        self.assertIn('Email: Nao informado', mail.outbox[0].body)
+        self.assertIn('E-mail: Não informado', mail.outbox[0].body)
 
     @override_settings(
         EMAIL_BACKEND='home.tests.FailingEmailBackend',
@@ -77,4 +77,4 @@ class ContactEmailTests(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].tags, 'error')
-        self.assertIn('Nao foi possivel enviar', str(messages[0]))
+        self.assertIn('Não foi possível enviar', str(messages[0]))
