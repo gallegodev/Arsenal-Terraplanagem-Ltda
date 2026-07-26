@@ -45,4 +45,23 @@ repository.
 For Gmail, `EMAIL_HOST_PASSWORD` should be an app password for the sender
 account, not the account's normal login password.
 
+## Permanent preview / hosting
+
+This repository includes a Render blueprint in `render.yaml` for a persistent
+public website URL. Render can deploy the Django app from GitHub, run
+`build.sh`, start Gunicorn, serve static files with WhiteNoise, and provision a
+PostgreSQL database.
+
+To publish it:
+
+1. Push this repository to GitHub.
+2. In Render, create a new Blueprint from the GitHub repository.
+3. When Render asks for `EMAIL_HOST_PASSWORD`, enter the Gmail app password for
+   `arsenalterra@gmail.com`.
+4. Deploy the blueprint.
+
+After deployment, Render provides a stable `.onrender.com` URL that can be
+shared with clients. A custom domain can be connected later from the Render
+dashboard.
+
 The public site is intentionally static/content-driven. The old ecommerce, cart, checkout, profile, account, and admin routes from the source project are not installed or exposed.

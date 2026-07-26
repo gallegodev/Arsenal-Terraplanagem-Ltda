@@ -1,0 +1,42 @@
+databases:
+  - name: arsenal-terraplanagem-db
+    databaseName: arsenal_terraplanagem
+    user: arsenal_terraplanagem
+
+services:
+  - type: web
+    name: arsenal-terraplanagem
+    runtime: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn arsenal_terra.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: arsenal-terraplanagem-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: EMAIL_BACKEND
+        value: django.core.mail.backends.smtp.EmailBackend
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USE_TLS
+        value: true
+      - key: EMAIL_USE_SSL
+        value: false
+      - key: EMAIL_TIMEOUT
+        value: 20
+      - key: EMAIL_HOST_USER
+        value: arsenalterra@gmail.com
+      - key: DEFAULT_FROM_EMAIL
+        value: arsenalterra@gmail.com
+      - key: CONTACT_EMAIL_RECIPIENTS
+        value: arsenalterra@gmail.com
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
