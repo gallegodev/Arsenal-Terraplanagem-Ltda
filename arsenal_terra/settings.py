@@ -2,7 +2,16 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
+
+
+def env_bool(name, default=False):
+    """Return a boolean setting from an environment variable."""
+    return os.environ.get(name, str(default)).lower() in {'1', 'true', 'yes', 'on'}
+
 
 SECRET_KEY = 'django-insecure-7e97g_smd(*yh3u2klh*&&-kl)7+k%lgg1ido4o*l=ay2tgor%'
 DEBUG = True
@@ -46,11 +55,28 @@ TEMPLATES = [
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'website@arsenalterraplanagem.local'
+EMAIL_BACKEND = os.environ.get(
+    'EMAIL_BACKEND',
+    'django.core.mail.backends.console.EmailBackend',
+)
+EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = env_bool('EMAIL_USE_TLS', True)
+EMAIL_USE_SSL = env_bool('EMAIL_USE_SSL', False)
+EMAIL_TIMEOUT = int(os.environ.get('EMAIL_TIMEOUT', '20'))
+DEFAULT_FROM_EMAIL = os.environ.get(
+    'DEFAULT_FROM_EMAIL',
+    'website@arsenalterraplanagem.local',
+)
 CONTACT_EMAIL_RECIPIENTS = [
-    'gallegojuan1991@gmail.com',
-    'arsenalterra@gmail.com',
+    email.strip()
+    for email in os.environ.get(
+        'CONTACT_EMAIL_RECIPIENTS',
+        'arsenalterra@gmail.com',
+    ).split(',')
+    if email.strip()
 ]
 
 WSGI_APPLICATION = 'arsenal_terra.wsgi.application'

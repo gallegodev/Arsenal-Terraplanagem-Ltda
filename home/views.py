@@ -1,7 +1,21 @@
-from django.contrib import messages
+import logging
+
 from django.conf import settings
-from django.core.mail import send_mail
+from django.contrib import messages
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
+
+logger = logging.getLogger(__name__)
+
+AUTO_REPLY_BODY = """Olá,
+
+Muito obrigado pelo seu e-mail!
+
+No momento, todos os nossos agentes estão ocupados, mas já recebemos a sua mensagem e entraremos em contato com você o mais rápido possível.
+
+Atenciosamente,
+
+Suzana Gallego"""
 
 SERVICES = [
     {
@@ -90,18 +104,41 @@ def contact(request):
             f'{message}\n'
         )
 
-        send_mail(
+        reply_to = [email] if email else None
+        quote_email = EmailMessage(
             subject='Nova solicitacao de orcamento - Arsenal Terraplanagem',
-            message=email_body,
+            body=email_body,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=settings.CONTACT_EMAIL_RECIPIENTS,
-            fail_silently=False,
+            to=settings.CONTACT_EMAIL_RECIPIENTS,
+            reply_to=reply_to,
         )
 
-        messages.success(
-            request,
-            'Obrigado. Recebemos sua solicitacao de orcamento e entraremos em contato em breve.',
-        )
+        try:
+            quote_email.send(fail_silently=False)
+        except Exception:
+            logger.exception('Failed to send contact form email.')
+            messages.error(
+                request,
+                'Nao foi possivel enviar a solicitacao agora. Por favor, tente novamente em instantes.',
+            )
+        else:
+            if email:
+                auto_reply = EmailMessage(
+                    subject='Recebemos sua mensagem - Arsenal Terraplanagem',
+                    body=AUTO_REPLY_BODY,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=[email],
+                )
+
+                try:
+                    auto_reply.send(fail_silently=False)
+                except Exception:
+                    logger.exception('Failed to send contact form auto-reply.')
+
+            messages.success(
+                request,
+                'Obrigado. Recebemos sua solicitacao de orcamento e entraremos em contato em breve.',
+            )
         return redirect('contact')
 
     return render(request, 'home/contact.html')

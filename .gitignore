@@ -2,6 +2,9 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
+.env
+.env.*
+!.env.example
 .venv/
 .ona/
 __pycache__/
