@@ -51,14 +51,6 @@ SERVICES = [
         'icon': 'fa-truck-ramp-box',
     },
     {
-        'title': 'Locação de caminhões',
-        'description': (
-            'Aluguel de caminhões para transporte de terra, entulho, pedra, '
-            'areia e apoio logístico em obras e terraplanagem.'
-        ),
-        'icon': 'fa-truck',
-    },
-    {
         'title': 'Locação de máquinas pesadas',
         'description': (
             'Disponibilidade de equipamentos para obra conforme a necessidade '
