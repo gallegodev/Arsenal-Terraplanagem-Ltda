@@ -60,8 +60,18 @@ To publish it:
    `arsenalterra@gmail.com`.
 4. Deploy the blueprint.
 
-After deployment, Render provides a stable `.onrender.com` URL that can be
-shared with clients. A custom domain can be connected later from the Render
-dashboard.
+After deployment, Render provides a stable `.onrender.com` URL. The app is also
+configured for `arsenalterraplanagem.com.br` and
+`www.arsenalterraplanagem.com.br`.
+
+To connect the `.com.br` domain:
+
+1. In Render, open the `arsenal-terraplanagem` web service.
+2. Add both custom domains:
+   - `arsenalterraplanagem.com.br`
+   - `www.arsenalterraplanagem.com.br`
+3. Copy the DNS records Render shows for those domains.
+4. In Registro.br or the domain's DNS provider, add the records from Render.
+5. Wait for DNS propagation and for Render to issue the HTTPS certificate.
 
 The public site is intentionally static/content-driven. The old ecommerce, cart, checkout, profile, account, and admin routes from the source project are not installed or exposed.
